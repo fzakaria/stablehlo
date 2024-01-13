@@ -7,3 +7,4 @@ llvm-project
 llvm-build
 .vscode
 .cache
+.idea/
