@@ -8,3 +8,5 @@ llvm-build
 .vscode
 .cache
 .idea/
+**/__pycache__
+*.whl
