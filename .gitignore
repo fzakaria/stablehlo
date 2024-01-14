@@ -10,3 +10,4 @@ llvm-build
 .idea/
 **/__pycache__
 *.whl
+**/*.egg-info/
