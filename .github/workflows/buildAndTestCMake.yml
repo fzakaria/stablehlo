@@ -53,12 +53,12 @@ jobs:
       run: |
           # e is the process name, p is the process id
           sudo sysctl -w kernel.core_pattern="core.%e.%p"
-          ulimit -c unlimited
     - name: Build and Run X
       shell: bash
       run: |
+        ulimit -c unlimited
         make x
-        sudo ./x
+        ./x
 
     - name: Get LLVM Version
       id: llvm-version
