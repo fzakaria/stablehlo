@@ -58,7 +58,7 @@ jobs:
       shell: bash
       run: |
         make x
-        ./x
+        sudo ./x
 
     - name: Get LLVM Version
       id: llvm-version
