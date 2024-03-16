@@ -49,7 +49,11 @@ jobs:
     steps:
     - name: Checkout StableHLO
       uses: actions/checkout@v4
-
+    - name: Setup Core Dumps
+      run: |
+          # e is the process name, p is the process id
+          sudo sysctl -w kernel.core_pattern="core.%e.%p"
+          ulimit -c unlimited
     - name: Build and Run X
       shell: bash
       run: |
@@ -79,11 +83,6 @@ jobs:
       env:
           CMAKE_BUILD_TYPE: Release
           MLIR_ENABLE_BINDINGS_PYTHON: ON
-    - name: Setup Core Dumps
-      run: |
-          # e is the process name, p is the process id
-          sudo sysctl -w kernel.core_pattern="core.%e.%p"
-          ulimit -c unlimited
     - name: Build and Test StableHLO (with AddressSanitizer)
       shell: bash
       run: |
