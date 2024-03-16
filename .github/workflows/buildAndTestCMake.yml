@@ -50,6 +50,12 @@ jobs:
     - name: Checkout StableHLO
       uses: actions/checkout@v4
 
+    - name: Build and Run X
+      shell: bash
+      run: |
+        make x
+        ./x
+
     - name: Get LLVM Version
       id: llvm-version
       shell: bash
